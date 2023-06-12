@@ -1,8 +1,7 @@
-import { motion } from "framer-motion";
-import { useQuery } from "react-query";
-import { IAPIResponse, IMovie, getPopular } from "../../api";
-import Layout from "../../components/Layout";
+import Layout from "./Layout";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { IAPIResponse, IMovie } from "../api";
 
 const Container = styled(motion.div)`
   display: grid;
@@ -54,15 +53,13 @@ const movieVariants = {
     opacity: 1,
   },
 };
-const Popular = () => {
-  const { data, isLoading } = useQuery<IAPIResponse>(
-    ["movies", "popular"],
-    getPopular
-  );
 
-  return isLoading ? (
-    <h1>loading</h1>
-  ) : (
+interface IProps {
+  data: IAPIResponse;
+}
+
+const Movies = ({ data }: IProps) => {
+  return (
     <Layout>
       <Container variants={containerVariants} initial="start" animate="end">
         {data?.results.map((movie: IMovie) => (
@@ -85,4 +82,4 @@ const Popular = () => {
   );
 };
 
-export default Popular;
+export default Movies;

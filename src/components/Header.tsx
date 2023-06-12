@@ -25,17 +25,22 @@ const LinkContainer = styled.div`
   a {
     font-size: 1rem;
     font-weight: 500;
+    color: #999;
     padding-bottom: 3px;
     // border-bottom: 2px solid red;
   }
 `;
 
-const IconContainer = styled.div`
+const IconContainer = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: -3px;
   font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
 `;
 
 const Header = () => {
@@ -47,9 +52,17 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <div>{isDarkMode}</div>
+      <div></div>
       <LinkContainer>
-        <Link to="/">POPULAR</Link>
+        <Link
+          to="/"
+          style={{
+            fontWeight: 700,
+            color: "white",
+          }}
+        >
+          POPULAR
+        </Link>
         <Link to="/comming-soon">COMMING SOON</Link>
         <Link to="/now-playing">NOW PLAYING</Link>
       </LinkContainer>
