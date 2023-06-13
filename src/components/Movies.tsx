@@ -2,6 +2,7 @@ import Layout from "./Layout";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { IAPIResponse, IMovie, makeImagePath } from "../api";
+import ContentsDetail from "../routes/Movie/Detai";
 
 const Container = styled(motion.div)`
   display: grid;
@@ -68,6 +69,9 @@ const Movies = ({ data }: IProps) => {
             whileHover={{
               marginTop: -15,
             }}
+            onClick={() => {
+              console.log(movie);
+            }}
           >
             <MovieImage
               src={makeImagePath(movie.poster_path)}
@@ -76,6 +80,7 @@ const Movies = ({ data }: IProps) => {
             <MovieTitle>{movie.title}</MovieTitle>
           </Movie>
         ))}
+        <ContentsDetail type="movie" />
       </Container>
     </Layout>
   );

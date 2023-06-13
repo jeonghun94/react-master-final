@@ -3,8 +3,8 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../theme";
 import { useRecoilValue } from "recoil";
 import { themeState } from "../atoms";
-const Root = () => {
-  const GlobalStyle = createGlobalStyle`
+
+const GlobalStyle = createGlobalStyle`
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
         a, abbr, acronym, address, big, cite, code,
@@ -60,9 +60,8 @@ const Root = () => {
           box-sizing: border-box;
         }
   `;
-
+const Root = () => {
   const isDarkMode = useRecoilValue(themeState);
-
   return (
     <>
       <ThemeProvider theme={isDarkMode ? lightTheme : darkTheme}>
