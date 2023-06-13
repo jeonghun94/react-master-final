@@ -1,7 +1,7 @@
 import Layout from "./Layout";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { IAPIResponse, IMovie } from "../api";
+import { IAPIResponse, IMovie, makeImagePath } from "../api";
 
 const Container = styled(motion.div)`
   display: grid;
@@ -16,8 +16,7 @@ const Movie = styled(motion.div)`
   align-items: center;
   width: 100%;
   height: auto;
-  transition: opacity 0.3s ease-in-out;
-
+  // transition: opacity 0.3s ease-in-out;
   gap: 1rem;
 `;
 
@@ -71,7 +70,7 @@ const Movies = ({ data }: IProps) => {
             }}
           >
             <MovieImage
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              src={makeImagePath(movie.poster_path)}
               alt={movie.title}
             />
             <MovieTitle>{movie.title}</MovieTitle>

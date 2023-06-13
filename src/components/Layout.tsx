@@ -1,5 +1,8 @@
-import Header from "./Header";
 import styled from "styled-components";
+import Header from "./Header";
+interface IProps {
+  children: React.ReactNode;
+}
 
 const Container = styled.div`
   width: 100%;
@@ -12,10 +15,6 @@ const Container = styled.div`
   margin: auto;
   padding: 1.5rem 0;
 `;
-
-interface IProps {
-  children: React.ReactNode;
-}
 
 const Layout = ({ children }: IProps) => {
   return (

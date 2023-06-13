@@ -3,7 +3,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../theme";
 import { useRecoilValue } from "recoil";
 import { themeState } from "../atoms";
-export default function Root() {
+const Root = () => {
   const GlobalStyle = createGlobalStyle`
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -71,4 +71,6 @@ export default function Root() {
       </ThemeProvider>
     </>
   );
-}
+};
+
+export default Root;
