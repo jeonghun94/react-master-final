@@ -17,7 +17,6 @@ const Movie = styled(motion.div)`
   align-items: center;
   width: 100%;
   height: auto;
-  // transition: opacity 0.3s ease-in-out;
   gap: 1rem;
 `;
 

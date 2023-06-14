@@ -1,6 +1,5 @@
 import { useQuery } from "react-query";
 import { IAPIResponse, getComingSoon, getNowPlaying, getPopular } from "./api";
-import { createGlobalStyle } from "styled-components";
 
 export const useMultiQuery = () => {
   const popular = useQuery<IAPIResponse>(["movies", "nowPlaying"], getPopular);
