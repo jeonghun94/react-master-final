@@ -45,6 +45,7 @@ const Header = () => {
   const [isDarkMode, setIsDarkMode] = useRecoilState(themeState);
   const handleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
+    localStorage.setItem("isDarkMode", JSON.stringify(!isDarkMode));
   };
 
   return (
