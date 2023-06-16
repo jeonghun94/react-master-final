@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import NavLink from "./NavLink";
 import { useRecoilState } from "recoil";
 import { themeState } from "../atoms";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
-import NavLink from "./NavLink";
+import { motion } from "framer-motion";
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -29,7 +30,7 @@ const LinkContainer = styled.div`
   }
 `;
 
-const IconContainer = styled.button`
+const IconContainer = styled(motion.button)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,7 +57,11 @@ const Header = () => {
         <NavLink to="/comming-soon">COMMING SOON</NavLink>
         <NavLink to="/now-playing">NOW PLAYING</NavLink>
       </LinkContainer>
-      <IconContainer onClick={handleDarkMode}>
+      <IconContainer
+        onClick={handleDarkMode}
+        whileHover={{ scale: 1.5, rotate: 360, transition: { duration: 0.5 } }}
+        transition={{ duration: 0.5 }}
+      >
         {isDarkMode ? <BsSunFill /> : <BsMoonFill />}
       </IconContainer>
     </StyledHeader>
