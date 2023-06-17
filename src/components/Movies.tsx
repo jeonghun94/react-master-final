@@ -62,7 +62,7 @@ const movieVariants = {
 };
 
 interface MoviesProps {
-  data: IAPIResponse;
+  data: any;
 }
 
 const Movies = ({ data }: MoviesProps) => {

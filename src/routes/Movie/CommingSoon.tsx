@@ -1,14 +1,13 @@
-import { useQuery } from "react-query";
-import { IAPIResponse, getComingSoon } from "../../api";
+import { getComingSoon } from "../../api";
 import Movies from "../../components/Movies";
+import { useLoaderData } from "react-router-dom";
 
-const CommingSoon = () => {
-  const { data, isLoading } = useQuery<IAPIResponse>(
-    ["movies", "comming-soon"],
-    getComingSoon
-  );
+export async function Loader() {
+  const data = await getComingSoon();
+  return data;
+}
 
-  return isLoading ? <div>loading...</div> : <Movies data={data!} />;
-};
-
-export default CommingSoon;
+export default function CommingSoon() {
+  const data = useLoaderData();
+  return <Movies data={data} />;
+}
