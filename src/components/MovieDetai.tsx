@@ -86,9 +86,9 @@ const CloseButton = styled.button`
   height: 2rem;
   border-radius: 50%;
   background-color: transparent;
-  color: ${(props) => props.theme.bgColor};
+  // color: ${(props) => props.theme.bgColor};
+  color: #c2c2c2;
   font-size: 2rem;
-  font-weight: 700;
   border: none;
   cursor: pointer;
 `;
