@@ -4,11 +4,8 @@ import Movies from "../../components/Movies";
 
 const CommingSoon = () => {
   const { data, isLoading } = useQuery<IAPIResponse>(
-    ["movies", "popular"],
-    getComingSoon,
-    {
-      refetchOnWindowFocus: false,
-    }
+    ["movies", "comming-soon"],
+    getComingSoon
   );
 
   return isLoading ? <div>loading...</div> : <Movies data={data!} />;

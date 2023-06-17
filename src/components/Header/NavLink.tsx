@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { Link, useMatch } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useRecoilValue } from "recoil";
-import { themeState } from "../atoms";
-import { darkTheme, lightTheme } from "../theme";
+import { themeState } from "../../atoms";
+import { darkTheme, lightTheme } from "../../theme";
 
 interface NavLinkProps {
   to: string;

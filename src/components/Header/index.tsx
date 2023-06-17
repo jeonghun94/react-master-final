@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import NavLink from "./NavLink";
 import { useRecoilState } from "recoil";
-import { themeState } from "../atoms";
+import { themeState } from "../../atoms";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 
