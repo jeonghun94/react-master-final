@@ -1,45 +1,15 @@
-import Layout from "./Layout";
-import styled from "styled-components";
-import { motion } from "framer-motion";
+import Layout from "../Layout";
 import {
   IAPIResponse,
   IMovie,
   IMovieDetail,
   getMovie,
   makeImagePath,
-} from "../api";
+} from "../../api";
 import { useState } from "react";
 import { useQuery } from "react-query";
-import MovieDetail from "./MovieDetai";
-
-const Container = styled(motion.div)`
-  display: grid;
-  padding: 1rem;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-`;
-
-const Movie = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  gap: 1rem;
-`;
-
-const MovieImage = styled.img`
-  width: 90%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
-`;
-
-const MovieTitle = styled.h1`
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 600;
-`;
+import MovieDetail from "../MovieDetail";
+import { Container, Movie, MovieImage, MovieTitle } from "./styled";
 
 const containerVariants = {
   start: { opacity: 1, scale: 0 },

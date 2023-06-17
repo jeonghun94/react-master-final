@@ -1,23 +1,8 @@
-import styled from "styled-components";
 import { Link, useMatch } from "react-router-dom";
-import { motion } from "framer-motion";
 import { useRecoilValue } from "recoil";
 import { themeState } from "../../atoms";
 import { darkTheme, lightTheme } from "../../theme";
-
-interface NavLinkProps {
-  to: string;
-  children: React.ReactNode;
-}
-
-const ActiveBar = styled(motion.span)`
-  width: 100%;
-  height: 2px;
-  margin-top: 5px;
-  border-radius: 5px;
-  bottom: -5px;
-  background-color: ${(props) => props.theme.textColor};
-`;
+import { ActiveBar } from "./styled";
 
 const circleVariants = {
   start: {
@@ -27,6 +12,11 @@ const circleVariants = {
     opacity: 1,
   },
 };
+
+interface NavLinkProps {
+  to: string;
+  children: React.ReactNode;
+}
 
 const NavLink = ({ to, children }: NavLinkProps) => {
   const isDarkMode = useRecoilValue(themeState);

@@ -21,3 +21,16 @@ export const formattedNumber = (number: number) =>
     currency: "USD",
     minimumFractionDigits: 2,
   });
+
+export const loader = async (type: string) => {
+  switch (type) {
+    case "popular":
+      return await getPopular();
+    case "comming-soon":
+      return await getComingSoon();
+    case "now-playing":
+      return await getNowPlaying();
+    default:
+      return await getPopular();
+  }
+};
