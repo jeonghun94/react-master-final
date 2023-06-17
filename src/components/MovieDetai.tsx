@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { IMovieDetail, makeBgPath } from "../api";
 import { formattedNumber } from "../utils";
 import { Link } from "react-router-dom";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 const Overlay = styled(motion.div)`
   position: fixed;
@@ -84,9 +85,9 @@ const CloseButton = styled.button`
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background-color: ${(props) => props.theme.bgColor};
-  color: ${(props) => props.theme.textColor};
-  font-size: 1rem;
+  background-color: transparent;
+  color: ${(props) => props.theme.bgColor};
+  font-size: 2rem;
   font-weight: 700;
   border: none;
   cursor: pointer;
@@ -174,7 +175,7 @@ const MovieDetail = ({
                 </MovieDetailInfoTitle>
               </MovieDetailInfo>
               <CloseButton onClick={() => setIsClicked(!isClicked)}>
-                X
+                <AiFillCloseCircle />
               </CloseButton>
             </MovieDetailContainer>
           </>
