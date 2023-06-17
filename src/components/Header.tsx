@@ -59,7 +59,7 @@ const Header = () => {
       </LinkContainer>
       <IconContainer
         onClick={handleDarkMode}
-        whileHover={{ scale: 1.5, rotate: 360, transition: { duration: 0.5 } }}
+        whileHover={{ scale: 1.5, transition: { duration: 0.5 } }}
         transition={{ duration: 0.5 }}
       >
         {isDarkMode ? <BsSunFill /> : <BsMoonFill />}

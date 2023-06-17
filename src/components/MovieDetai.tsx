@@ -12,11 +12,10 @@ const Overlay = styled(motion.div)`
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
-  // overflow: hidden;
 `;
 
 const MovieDetailContainer = styled(motion.div)`
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   min-width: 450px;
@@ -120,9 +119,9 @@ const MovieDetail = ({
               onClick={() => setIsClicked(!isClicked)}
             />
             <MovieDetailContainer
-              initial={{ y: 1000 }}
+              initial={{ y: -1000 }}
               animate={{ y: 0 }}
-              exit={{ y: 1000 }}
+              exit={{ y: -1000 }}
               transition={{
                 duration: 0.5,
               }}

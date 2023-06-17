@@ -5,7 +5,10 @@ import Movies from "../../components/Movies";
 const CommingSoon = () => {
   const { data, isLoading } = useQuery<IAPIResponse>(
     ["movies", "popular"],
-    getComingSoon
+    getComingSoon,
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
   return isLoading ? <div>loading...</div> : <Movies data={data!} />;

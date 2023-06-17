@@ -5,7 +5,10 @@ import Movies from "../../components/Movies";
 const Popular = () => {
   const { data, isLoading } = useQuery<IAPIResponse>(
     ["movies", "popular"],
-    getPopular
+    getPopular,
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
   return isLoading ? <div>loading...</div> : <Movies data={data!} />;
