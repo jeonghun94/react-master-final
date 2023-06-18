@@ -1,6 +1,6 @@
 import Layout from "../Layout";
 import {
-  IAPIResponse,
+  // IAPIResponse,
   IMovie,
   IMovieDetail,
   getMovie,
@@ -54,32 +54,48 @@ const Movies = ({ data }: MoviesProps) => {
 
   return (
     <Layout>
-      <Container variants={containerVariants} initial="start" animate="end">
-        {data?.results.map((movie: IMovie) => (
-          <Movie
-            key={movie.id}
-            variants={movieVariants}
-            whileHover={{
-              marginTop: -15,
-              marginBottom: 15,
-            }}
-            onClick={() => handleMovieClick(String(movie.id))}
-          >
-            <MovieImage
-              src={makeImagePath(movie.poster_path)}
-              alt={movie.title}
-            />
-            <MovieTitle>{movie.title}</MovieTitle>
-          </Movie>
-        ))}
+      {data?.results.length > 0 ? (
+        <Container variants={containerVariants} initial="start" animate="end">
+          {data?.results.map(
+            (movie: IMovie) =>
+              movie.backdrop_path && (
+                <Movie
+                  key={movie.id}
+                  variants={movieVariants}
+                  whileHover={{
+                    marginTop: -15,
+                    marginBottom: 15,
+                  }}
+                  onClick={() => handleMovieClick(String(movie.id))}
+                >
+                  <MovieImage
+                    src={makeImagePath(movie.poster_path)}
+                    alt={movie.title}
+                  />
+                  <MovieTitle>{movie.title}</MovieTitle>
+                </Movie>
+              )
+          )}
 
-        <MovieDetail
-          data={movieDetailData}
-          setIsClicked={setIsClicked}
-          isClicked={isClicked}
-          isLoading={isLoading}
-        />
-      </Container>
+          <MovieDetail
+            data={movieDetailData}
+            setIsClicked={setIsClicked}
+            isClicked={isClicked}
+            isLoading={isLoading}
+          />
+        </Container>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "80vh",
+          }}
+        >
+          조회된 데이터가 없습니다
+        </div>
+      )}
     </Layout>
   );
 };

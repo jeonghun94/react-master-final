@@ -1,4 +1,5 @@
 const BASE_URL = "https://movies-api.nomadcoders.workers.dev";
+const API_KEY = "10923b261ba94d897ac6b81148314a3f";
 
 export function getPopular() {
   return fetch(`${BASE_URL}/popular`).then((r) => r.json());
@@ -23,6 +24,12 @@ export function makeImagePath(image: string) {
 export function makeBgPath(image: string) {
   return `https://image.tmdb.org/t/p/original${image}`;
 }
+
+export const searchMovies = (keyword: string) => {
+  return fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyword}`
+  ).then((res) => res.json());
+};
 
 export interface IMovie {
   adult: boolean;

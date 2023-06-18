@@ -80,21 +80,23 @@ const MovieDetail = ({
                     {data?.vote_average}
                   </MovieDetailInfoText>
                 </MovieDetailInfoTitle>
-                <MovieDetailInfoTitle>
-                  Hompeage:{" "}
-                  <MovieDetailInfoText>
-                    <Link
-                      style={{
-                        textDecoration: "underline",
-                      }}
-                      to={data?.homepage || "#"}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      {data?.homepage}
-                    </Link>
-                  </MovieDetailInfoText>
-                </MovieDetailInfoTitle>
+                {data?.homepage && (
+                  <MovieDetailInfoTitle>
+                    Hompeage:{" "}
+                    <MovieDetailInfoText>
+                      <Link
+                        style={{
+                          textDecoration: "underline",
+                        }}
+                        to={data?.homepage || "#"}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        {data?.homepage}
+                      </Link>
+                    </MovieDetailInfoText>
+                  </MovieDetailInfoTitle>
+                )}
               </MovieDetailInfo>
               <CloseButton onClick={() => setIsClicked(!isClicked)}>
                 <AiFillCloseCircle />

@@ -8,6 +8,7 @@ import CommingSoon, {
 import NowPlaying, {
   Loader as NowPlayingLoader,
 } from "./routes/Movie/NowPlaying";
+import Search from "./routes/Movie/Search";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path: "now-playing",
         element: <NowPlaying />,
         loader: NowPlayingLoader,
+      },
+      {
+        path: "search",
+        element: <Search />,
       },
     ],
   },
