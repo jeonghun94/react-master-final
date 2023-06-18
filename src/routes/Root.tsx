@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
           background-color: ${(props) => props.theme.bgColor} ;
           color: ${(props) => props.theme.textColor};
           transition: background-color 0.3s, color 0.3s;
-          font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,;
+          font-family: sans-serif;
         }
         ol, ul {
           list-style: none;
