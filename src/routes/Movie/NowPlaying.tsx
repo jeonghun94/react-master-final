@@ -1,13 +1,13 @@
-import { getNowPlaying } from "../../api";
+import { useQuery } from "react-query";
+import { IAPIResponse, getNowPlaying } from "../../api";
 import Movies from "../../components/Movies";
-import { useLoaderData } from "react-router-dom";
 
-export async function Loader() {
-  const data = await getNowPlaying();
-  return data;
-}
+const NowPlaying = () => {
+  const { data, isLoading } = useQuery<IAPIResponse>(
+    ["movies", "now-playing"],
+    getNowPlaying
+  );
 
-export default function NowPlaying() {
-  const data = useLoaderData();
-  return <Movies data={data} />;
-}
+  return isLoading ? <div>loading...</div> : <Movies data={data!} />;
+};
+export default NowPlaying;

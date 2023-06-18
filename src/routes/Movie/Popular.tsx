@@ -1,13 +1,13 @@
-import { getPopular } from "../../api";
+import { useQuery } from "react-query";
+import { IAPIResponse, getPopular } from "../../api";
 import Movies from "../../components/Movies";
-import { useLoaderData } from "react-router-dom";
 
-export async function Loader() {
-  const data = await getPopular();
-  return data;
-}
+const Popular = () => {
+  const { data, isLoading } = useQuery<IAPIResponse>(
+    ["movies", "popular"],
+    getPopular
+  );
 
-export default function Popular() {
-  const data = useLoaderData();
-  return <Movies data={data} />;
-}
+  return isLoading ? <div>loading...</div> : <Movies data={data!} />;
+};
+export default Popular;
