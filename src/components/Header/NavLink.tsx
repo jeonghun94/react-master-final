@@ -29,7 +29,7 @@ const NavLink = ({ to, children }: NavLinkProps) => {
         flexDirection: "column",
         alignItems: "center",
         fontWeight: isActive ? 700 : 500,
-        fontSize: ".8rem",
+        fontSize: ".9rem",
         color: isActive
           ? !isDarkMode
             ? darkTheme.textColor
