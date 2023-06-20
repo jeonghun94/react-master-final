@@ -72,9 +72,9 @@ const Header = () => {
               onClick={() => setSearchOpen(!searchOpen)}
             />
             <SearchContainer
-              initial={{ y: -1000 }}
-              animate={{ y: 0, marginTop: "800px" }}
-              exit={{ y: -1000 }}
+              initial={{ y: -300 }}
+              animate={{ y: 0, marginTop: "300px" }}
+              exit={{ y: -300 }}
               transition={{
                 duration: 0.5,
               }}
@@ -91,6 +91,7 @@ const Header = () => {
                       minLength: 1,
                     })}
                     placeholder="Search for movie"
+                    autoFocus={searchOpen}
                   />
                   <SearchButton type="submit">검색</SearchButton>
                 </form>
