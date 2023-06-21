@@ -32,7 +32,7 @@ const MovieDetail = ({
     <AnimatePresence>
       {isClicked &&
         (isLoading ? (
-          <div>loading...</div>
+          <div></div>
         ) : (
           <>
             <Overlay
