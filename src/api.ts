@@ -17,6 +17,10 @@ export function getMovie(id: string) {
   return fetch(`${BASE_URL}/movie?id=${id}`).then((r) => r.json());
 }
 
+export function getContent(content: string) {
+  return fetch(`${BASE_URL}/${content}`).then((r) => r.json());
+}
+
 export function makeImagePath(image: string) {
   return `https://image.tmdb.org/t/p/w500${image}`;
 }
